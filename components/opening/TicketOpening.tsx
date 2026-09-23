@@ -84,7 +84,13 @@ export default function TicketOpening({ onDone }: TicketOpeningProps) {
   useEffect(() => {
     if (phase !== "tearing") return;
     const timer = setTimeout(
-      complete,
+      () => {
+        // play를 false로 내려야 AnimatePresence가 실제로 DOM에서 이 오버레이를 걷어낸다 -
+        // 배경 wash만 opacity 0으로 옅어질 뿐 이 div 자체는 계속 fixed inset-0로 남아 있어서,
+        // 이걸 빼먹으면 화면은 안 보여도 클릭을 전부 가로채는 투명 오버레이가 영구히 남는다.
+        setPlay(false);
+        complete();
+      },
       prefersReducedMotion ? 400 : TEAR_DURATION_MS
     );
     return () => clearTimeout(timer);

@@ -1,42 +1,26 @@
 /**
  * GOOD BYE SUMMER · 난워니 미니콘서트(2026.09.30) 마이크로사이트 전역 데이터.
  * 날짜/타이틀/문구는 전부 이 파일에서만 관리한다.
+ *
+ * 오픈 전(PRE-OPEN) 페이지라 확정된 정보가 날짜뿐이라, 현재 화면에서 실제로
+ * 쓰는 값만 남겨둔다 - 공연 시작 시간/Set List/응원 메시지처럼 아직 확정되지
+ * 않은 정보에 대한 문구는 만들지 않는다.
  */
 
 export const CONCERT_TITLE_LINE_1 = "GOOD BYE";
 export const CONCERT_TITLE_LINE_2 = "SUMMER";
-export const CONCERT_SUBTITLE_KO = "난워니 미니콘서트";
 export const CONCERT_SUBTITLE_EN = "nanwony mini concert";
-export const CONCERT_ARTIST_KO = "워니";
-export const CONCERT_ARTIST_EN = "WONY";
 
-/** 콘서트 시작 시각. 값 하나만 바꾸면 Countdown/문구가 전부 따라간다. */
-export const CONCERT_DATE = new Date("2026-09-30T19:00:00+09:00");
-/** 공연 종료 예상 시각 - 이 시각 이후에는 Countdown이 "THANK YOU" 문구로 자동 전환된다. */
-export const CONCERT_END_DATE = new Date("2026-09-30T21:30:00+09:00");
+/**
+ * 현재 확정된 정보는 "날짜"뿐이라, 공연 시작 시각을 임의로 만들지 않고
+ * 2026-09-30 하루의 시작(00:00 KST)을 카운트다운 기준으로 삼는다. 실제 시작
+ * 시각이 확정되면 이 값만 그 시각으로 바꾸면 Countdown/문구가 전부 따라간다.
+ */
+export const CONCERT_DATE = new Date("2026-09-30T00:00:00+09:00");
+/** 2026-09-30 하루가 끝나는 경계(=10/1 00:00 KST). 이 시각 이후를 "공연 종료 이후"로 본다. */
+export const CONCERT_END_DATE = new Date("2026-10-01T00:00:00+09:00");
 export const CONCERT_DATE_LABEL = "2026.09.30";
 
-export const HERO_EYEBROW = ["여름의 끝,", "그리고", "새로운 계절로"];
-
-export const INTRO_EYEBROW = "OUR LAST SUMMER NIGHT";
-export const INTRO_LINES = [
-  "뜨거웠던 여름이 지나고",
-  "조금은 선선해진 어느 날.",
-  "",
-  "우리의 여름 마지막 페이지를",
-  "워니와 함께 장식합니다.",
-];
-export const INTRO_INVITATION = ["노래와 이야기로 함께하는", "작은 미니콘서트에 초대합니다."];
-
-export const THREE_SONGS_TAGLINE = ["워니가 준비한", "세 개의 노래.", "", "어떤 노래일지는", "9월 30일에 만나요 ♡"];
-
-export const MESSAGE_INTRO = "미니콘서트를 준비하고 있는 워니에게\n응원의 메시지를 남겨주세요.";
-
-export const ENDING_LINES = [
-  "뜨거웠던 우리의 여름 끝에서",
-  "",
-  "그리고",
-  "새로운 계절의 시작에서",
-  "",
-  "다시 만나요.",
-];
+/** 티켓 절취 직후 첫 화면(Hero)에서만 쓰는 문구. */
+export const HERO_SUBTITLE_EN = "THE LAST SUMMER FESTIVAL";
+export const HERO_TAGLINE = ["여름의 마지막 페이지에서", "다시 만나요."];
