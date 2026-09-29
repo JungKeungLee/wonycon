@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import IntroExperience from "@/components/IntroExperience";
+import ThreeSongsTeaser from "@/components/ThreeSongsTeaser";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Header />
       <main>
         <IntroExperience />
+        <ThreeSongsTeaser />
       </main>
       <Footer />
     </>

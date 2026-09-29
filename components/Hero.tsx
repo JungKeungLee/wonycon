@@ -11,6 +11,7 @@ import {
 } from "@/data/concert";
 import HeroCountdown from "./HeroCountdown";
 import PosterButton from "./PosterButton";
+import LetterButton from "./LetterButton";
 
 /** Hero 등장 순서(초): 배경 → GOOD BYE → SUMMER → 서브타이틀 → 감성 문구 → 날짜 → Countdown → 포스터 버튼. */
 const TIMING = {
@@ -188,9 +189,10 @@ export default function Hero({ start = true }: HeroProps) {
           initial={{ opacity: 0, y: 10 }}
           animate={reveal({ opacity: 0, y: 10 }, { opacity: 1, y: 0 })}
           transition={{ ...t(TIMING.poster), ease: "easeOut" }}
-          className="mt-8"
+          className="mt-8 flex flex-wrap items-center justify-center gap-3"
         >
           <PosterButton />
+          <LetterButton />
         </motion.div>
       </div>
     </section>
