@@ -13,6 +13,7 @@ import {
 import HeroCountdown from "./HeroCountdown";
 import PosterButton from "./PosterButton";
 import LetterButton from "./LetterButton";
+import LetterboxLinkButton from "./LetterboxLinkButton";
 
 /** Hero 등장 순서(초): 배경 → GOOD BYE → SUMMER → 서브타이틀 → 감성 문구 → 날짜 → Countdown → 포스터 버튼. */
 const TIMING = {
@@ -203,6 +204,7 @@ export default function Hero({ start = true }: HeroProps) {
         >
           <PosterButton />
           <LetterButton />
+          <LetterboxLinkButton />
         </motion.div>
       </div>
     </section>

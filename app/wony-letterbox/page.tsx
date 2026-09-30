@@ -1,27 +1,20 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import { getSql } from "@/lib/db";
-import { isLetterboxSessionValid, LETTERBOX_COOKIE_NAME } from "@/lib/letterboxAuth";
-import LetterboxLoginForm from "@/components/letterbox/LetterboxLoginForm";
 import LetterReader, { type LetterboxLetter } from "@/components/letterbox/LetterReader";
 
 export const metadata: Metadata = {
   title: "WONY LETTER BOX",
-  // 검색엔진/일반 방문자에게 발견되지 않도록 - 메인 사이트 어디에도 이 URL을 노출하지 않는다.
-  robots: { index: false, follow: false },
 };
 
-/** 매 요청마다 인증 쿠키/최신 편지를 다시 확인해야 하므로 캐시하지 않는다. */
+/** 새로 도착한 편지가 바로 보이도록 캐시하지 않는다. */
 export const dynamic = "force-dynamic";
 
+/**
+ * 누구나 비밀번호 없이 바로 볼 수 있는 편지함이다 - 조회 전용 페이지라
+ * 인증이 없어도 안전하다(편지 삭제/수정/관리 기능은 애초에 이 프로젝트에
+ * 없다). WONY_LETTERBOX_PASSWORD는 더 이상 이 페이지에서 쓰지 않는다.
+ */
 export default async function WonyLetterboxPage() {
-  const cookieStore = await cookies();
-  const authenticated = isLetterboxSessionValid(cookieStore.get(LETTERBOX_COOKIE_NAME)?.value);
-
-  if (!authenticated) {
-    return <LetterboxLoginForm />;
-  }
-
   let letters: LetterboxLetter[] = [];
   let loadError = false;
 
