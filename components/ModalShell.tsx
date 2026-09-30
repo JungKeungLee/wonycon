@@ -9,6 +9,8 @@ interface ModalShellProps {
   open: boolean;
   onClose: () => void;
   children: ReactNode;
+  /** 팝업 박스 자체의 배경/테두리색만 바꾸고 싶을 때 사용한다(기본은 Hero와 같은 쿨톤). */
+  contentClassName?: string;
 }
 
 /**
@@ -20,7 +22,7 @@ interface ModalShellProps {
  * 섹션의 isolate(새 stacking context) 안에 fixed 오버레이가 갇히면 z-index를
  * 아무리 높여도 Header보다 아래로 깔린다.
  */
-export default function ModalShell({ open, onClose, children }: ModalShellProps) {
+export default function ModalShell({ open, onClose, children, contentClassName }: ModalShellProps) {
   const hasMounted = useHasMounted();
 
   useEffect(() => {
@@ -68,7 +70,7 @@ export default function ModalShell({ open, onClose, children }: ModalShellProps)
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className="flex max-h-[85svh] w-full max-w-md flex-col overflow-hidden rounded-xl border border-white/40 bg-cyan-pale shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:max-h-[88vh] sm:max-w-lg"
+            className={`flex max-h-[85svh] w-full max-w-md flex-col overflow-hidden rounded-xl border shadow-[0_25px_80px_rgba(0,0,0,0.45)] sm:max-h-[88vh] sm:max-w-lg ${contentClassName ?? "border-white/40 bg-cyan-pale"}`}
           >
             <div className="overflow-y-auto p-6 sm:p-8">{children}</div>
           </motion.div>
