@@ -1,9 +1,9 @@
 import { CONCERT_DATE_LABEL } from "@/data/concert";
 
 /**
- * 오픈 전(PRE-OPEN) 단일 화면 티저라 스크롤로 이동할 다른 섹션이 없다 - 그래서
- * Nav 메뉴/햄버거 없이 워드마크와 날짜만 보여준다. 이후 섹션이 다시 생기면
- * 그때 메뉴를 추가하면 된다.
+ * 별도 Nav 메뉴/햄버거 없이 워드마크와 날짜만 보여주는 얇은 헤더. 섹션이
+ * 여러 개(SETLIST, Ending 등)로 늘어났지만 페이지 자체가 위에서 아래로
+ * 쭉 훑어보는 기록 페이지라 앵커 내비게이션 없이도 자연스럽다.
  */
 export default function Header() {
   return (

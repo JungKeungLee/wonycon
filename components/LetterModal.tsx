@@ -79,7 +79,7 @@ export default function LetterModal({ open, onClose }: LetterModalProps) {
           <div className="flex flex-col items-center gap-2 text-center">
             <h2 className="font-display text-sm tracking-[0.4em] text-ink-cool">TO. WONY</h2>
             <p className="font-serif-kr text-sm leading-relaxed text-ink-cool-soft">
-              이번 여름,
+              오늘의 미니콘,
               <br />
               워니에게 전하고 싶은 이야기를 남겨주세요.
             </p>

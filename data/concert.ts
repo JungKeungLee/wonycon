@@ -2,14 +2,15 @@
  * GOOD BYE SUMMER · 난워니 미니콘서트(2026.09.30) 마이크로사이트 전역 데이터.
  * 날짜/타이틀/문구는 전부 이 파일에서만 관리한다.
  *
- * 오픈 전(PRE-OPEN) 페이지라 현재 화면에서 실제로 쓰는 값만 남겨둔다 - 날짜와
- * 시작 시각은 확정됐지만(2026-09-30 16:00 KST), Set List/응원 메시지처럼
- * 여전히 확정되지 않은 정보에 대한 문구는 만들지 않는다.
+ * 공연이 끝난 뒤에는 이 사이트가 "공연을 기다리는 홍보 페이지"가 아니라
+ * "그날의 기록을 다시 보는 페이지"로 쓰인다 - Countdown/Coming Soon류 문구
+ * 대신 회고형 문구(CONCERT_ENDED_*)를 사용한다.
  */
 
 export const CONCERT_TITLE_LINE_1 = "GOOD BYE";
 export const CONCERT_TITLE_LINE_2 = "SUMMER";
 export const CONCERT_SUBTITLE_EN = "nanwony mini concert";
+export const CONCERT_SUBTITLE_KR = "난워니 미니콘서트";
 
 /**
  * 공연 시작 시각(운영 기준: 2026-09-30 16:00 KST). Countdown/문구가 전부 이
@@ -46,11 +47,10 @@ export const CONCERT_END_DATE = new Date("2026-10-01T00:00:00+09:00");
 export const CONCERT_DATE_LABEL = "2026.09.30";
 export const CONCERT_TIME_LABEL = "16:00";
 
-/** Countdown이 CONCERT_DATE에 도달하면(=당일) HeroCountdown이 대신 보여주는 문구. */
-export const CONCERT_DAY_TAGLINE = ["여름의 마지막 페이지,", "오늘 함께해요."];
-/** CONCERT_END_DATE(다음날 자정) 이후 보여주는 문구. */
-export const CONCERT_AFTER_TAGLINE = "함께해줘서 고마워요. GOOD BYE SUMMER ♡";
+/** 공연이 끝난 뒤 HeroCountdown 자리에 고정으로 보여주는 회고형 문구. */
+export const CONCERT_ENDED_HEADLINE_EN = "OUR LAST SUMMER NIGHT";
+export const CONCERT_ENDED_TAGLINE = ["우리의 마지막 여름,", "그날의 노래를 다시 만나보세요."];
 
 /** 티켓 절취 직후 첫 화면(Hero)에서만 쓰는 문구. */
 export const HERO_SUBTITLE_EN = "THE LAST SUMMER FESTIVAL";
-export const HERO_TAGLINE = ["여름의 마지막 페이지에서", "다시 만나요."];
+export const HERO_TAGLINE = ["뜨거웠던 여름의 마지막 밤,", "우리는 함께였습니다."];

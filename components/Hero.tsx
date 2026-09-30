@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { pseudoRandom } from "@/lib/motion";
 import {
   CONCERT_DATE_LABEL,
+  CONCERT_SUBTITLE_KR,
   CONCERT_TITLE_LINE_1,
   CONCERT_TITLE_LINE_2,
   HERO_SUBTITLE_EN,
@@ -151,6 +152,15 @@ export default function Hero({ start = true }: HeroProps) {
           className="font-display mt-1 text-xs tracking-[0.35em] text-ink-cool-soft sm:text-sm"
         >
           {HERO_SUBTITLE_EN}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={reveal({ opacity: 0, y: 8 }, { opacity: 1, y: 0 })}
+          transition={{ ...t(TIMING.subtitle), ease: "easeOut" }}
+          className="font-serif-kr text-xs tracking-[0.2em] text-ink-cool-soft sm:text-sm"
+        >
+          {CONCERT_SUBTITLE_KR}
         </motion.p>
 
         <motion.p
